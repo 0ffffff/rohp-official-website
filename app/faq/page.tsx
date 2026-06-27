@@ -1,12 +1,45 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Input } from "@/components/ui/input"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Card, CardContent } from "@/components/ui/card"
 import { Search, Mail } from "lucide-react"
-import { SplitText } from "@/components/split-text"
-import { FadeIn } from "@/components/fade-in"
+import { BentoGrid } from "@/components/bento-grid"
+import { BentoTile } from "@/components/bento-tile"
+import { PageHeader } from "@/components/page-header"
+import { Section } from "@/components/section"
+
+type FaqCategory = {
+  category: string
+  questions: { question: string; answer: string }[]
+}
+
+function FaqAccordion({ categories, startIndex }: { categories: FaqCategory[]; startIndex: number }) {
+  return (
+    <div className="space-y-6">
+      {categories.map((category, index) => (
+        <div key={category.category}>
+          <h2 className="mb-3 font-heading text-lg font-bold tracking-tight text-primary md:text-xl">
+            {category.category}
+          </h2>
+          <Accordion type="single" collapsible>
+            {category.questions.map((item, qIndex) => (
+              <AccordionItem key={qIndex} value={`${startIndex + index}-${qIndex}`}>
+                <AccordionTrigger className="cursor-pointer py-3 text-left hover:no-underline">
+                  <span className="text-sm font-semibold text-primary md:text-base">{item.question}</span>
+                </AccordionTrigger>
+                <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
+                  {item.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      ))}
+    </div>
+  )
+}
 
 export default function FAQPage() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -125,113 +158,88 @@ export default function FAQPage() {
     }))
     .filter((category) => category.questions.length > 0)
 
+  const midpoint = Math.ceil(filteredFAQs.length / 2)
+  const leftCategories = filteredFAQs.slice(0, midpoint)
+  const rightCategories = filteredFAQs.slice(midpoint)
+
   return (
-    <div className="flex flex-col">
-      {/* Header Section */}
-      <section className="berkeley-blue py-16">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-4xl text-center overflow-visible">
-            <SplitText text="Frequently Asked Questions" className="mb-4 text-4xl font-bold md:text-5xl" delay={0.03} />
-            <FadeIn delay={0.3}>
-              <p className="text-lg text-white/80 leading-relaxed">Find answers to common questions about ROHP</p>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
+    <div className="flex flex-col gap-3 md:gap-4">
+      <PageHeader
+        title="Frequently Asked Questions"
+        description="Find answers to common questions about ROHP"
+      />
 
-      {/* Search Section */}
-      <section className="py-8 bg-muted/30 border-b">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-2xl">
-            <FadeIn>
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                <Input
-                  type="search"
-                  placeholder="Search questions..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10"
-                />
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
+      <Section variant="muted" label="FAQ categories">
+        <BentoGrid>
+          <BentoTile span={12}>
+            <div className="relative max-w-xl">
+              <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                type="search"
+                placeholder="Search questions..."
+                aria-label="Search FAQ questions"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10"
+              />
+            </div>
+            <p className="mt-2 text-sm text-muted-foreground">
+              {filteredFAQs.length} {filteredFAQs.length === 1 ? "category" : "categories"} matching your search
+            </p>
+          </BentoTile>
 
-      {/* FAQ Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-4xl">
-            {filteredFAQs.length === 0 ? (
-              <FadeIn>
-                <Card>
-                  <CardContent className="py-12 text-center">
-                    <p className="text-muted-foreground">No questions found matching your search.</p>
-                  </CardContent>
-                </Card>
-              </FadeIn>
-            ) : (
-              <div className="space-y-12">
-                {filteredFAQs.map((category, catIndex) => (
-                  <FadeIn key={catIndex} delay={catIndex * 0.1}>
-                    <div>
-                      <h2 className="mb-6 text-2xl font-bold text-berkeley">
-                        {category.category}
-                      </h2>
-                      <Accordion type="single" collapsible className="space-y-4">
-                        {category.questions.map((item, qIndex) => (
-                          <AccordionItem
-                            key={qIndex}
-                            value={`${catIndex}-${qIndex}`}
-                            className="border rounded-lg px-6"
-                          >
-                            <AccordionTrigger className="text-left hover:no-underline">
-                              <span className="font-semibold text-berkeley">
-                                {item.question}
-                              </span>
-                            </AccordionTrigger>
-                            <AccordionContent className="text-muted-foreground leading-relaxed">
-                              {item.answer}
-                            </AccordionContent>
-                          </AccordionItem>
-                        ))}
-                      </Accordion>
-                    </div>
-                  </FadeIn>
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
+          {filteredFAQs.length === 0 ? (
+            <BentoTile span={12} className="text-center">
+              <p className="text-muted-foreground">No questions found matching your search.</p>
+            </BentoTile>
+          ) : rightCategories.length > 0 ? (
+            <>
+              <BentoTile span={6}>
+                <FaqAccordion categories={leftCategories} startIndex={0} />
+              </BentoTile>
+              <BentoTile span={6}>
+                <FaqAccordion categories={rightCategories} startIndex={midpoint} />
+              </BentoTile>
+            </>
+          ) : (
+            <BentoTile span={12}>
+              <FaqAccordion categories={leftCategories} startIndex={0} />
+            </BentoTile>
+          )}
+        </BentoGrid>
+      </Section>
 
-      {/* Contact Section */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-2xl">
-            <FadeIn>
-              <Card className="border-2">
-                <CardContent className="pt-8 text-center">
-                  <Mail className="mx-auto h-12 w-12 mb-4 icon-berkeley" />
-                  <h2 className="mb-4 text-2xl font-bold text-berkeley">
-                    Still Have Questions?
-                  </h2>
-                  <p className="mb-6 text-muted-foreground leading-relaxed">
-                    Can't find what you're looking for? Our team is here to help!
-                  </p>
-                  <a
-                    href="mailto:contact@rohp.berkeley.edu"
-                    className="text-lg font-semibold hover:text-[#FDB515] transition-colors"
-                  >
-                    contact@rohp.berkeley.edu
-                  </a>
-                </CardContent>
-              </Card>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
+      <Section label="Contact">
+        <BentoGrid>
+          <BentoTile span={8}>
+            <Mail className="mb-2 h-8 w-8 text-primary" />
+            <h2 className="font-heading text-2xl font-semibold tracking-tight text-primary md:text-3xl">
+              Still Have Questions?
+            </h2>
+            <p className="mt-2 max-w-prose text-sm text-muted-foreground">
+              Can&apos;t find what you&apos;re looking for? Our team is here to help!
+            </p>
+            <a
+              href="mailto:contact@rohp.berkeley.edu"
+              className="mt-4 inline-flex cursor-pointer items-center gap-2 text-base font-semibold text-primary transition-colors duration-200 hover:text-accent"
+            >
+              <Mail className="h-4 w-4" />
+              contact@rohp.berkeley.edu
+            </a>
+          </BentoTile>
+          <BentoTile span={4} variant="accent" className="text-center">
+            <p className="font-heading text-3xl font-bold tracking-tight text-accent-foreground">1–2</p>
+            <p className="mt-1 text-sm font-semibold text-accent-foreground">Business days</p>
+            <p className="mt-2 text-sm text-accent-foreground/90">Typical response time</p>
+            <Link
+              href="/registration"
+              className="mt-4 inline-flex cursor-pointer text-sm font-semibold text-accent-foreground transition-colors duration-200 hover:opacity-80"
+            >
+              Register for a program →
+            </Link>
+          </BentoTile>
+        </BentoGrid>
+      </Section>
     </div>
   )
 }

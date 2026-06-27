@@ -8,83 +8,87 @@
   --berkeley-blue: #003262;
   --california-gold: #fdb515;
 
+  /* Brand extension tokens */
+  --berkeley-blue-light: #1a4d7d;
+  --berkeley-blue-muted: #e8eef4;
+  --california-gold-muted: #fef3d6;
+  --studio-surface: #f5f5f7;
+
   /* Design System - Light Mode */
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #003262;
+  --primary-foreground: #ffffff;
+  --secondary: #f5f5f7;
+  --secondary-foreground: #0f172a;
+  --muted: #f5f5f7;
+  --muted-foreground: #475569;
+  --accent: #fdb515;
+  --accent-foreground: #003262;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #003262;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --radius: 0.5rem;
+  --sidebar: #f8fafc;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #003262;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f1f5f9;
+  --sidebar-accent-foreground: #0f172a;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #003262;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  /* make all base text nearly white in dark mode */
-  --foreground: oklch(0.98 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.98 0 0);
-  /* light, saturated blue for primary / highlight in dark mode */
-  --primary: oklch(0.75 0.12 255);
-  --primary-foreground: oklch(0.15 0 0);
-  --secondary: oklch(0.22 0 0);
-  --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.22 0 0);
-  --muted-foreground: oklch(0.8 0 0);
-  --accent: oklch(0.75 0.12 255);
-  --accent-foreground: oklch(0.15 0 0);
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --card: #0f172a;
+  --card-foreground: #f8fafc;
+  --popover: #0f172a;
+  --popover-foreground: #f8fafc;
+  --primary: #7fb5ff;
+  --primary-foreground: #0f172a;
+  --secondary: #1e293b;
+  --secondary-foreground: #f8fafc;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --accent: #fdb515;
+  --accent-foreground: #003262;
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
+  --border: #334155;
+  --input: #334155;
+  --ring: #7fb5ff;
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --sidebar: #1e293b;
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: #7fb5ff;
+  --sidebar-primary-foreground: #0f172a;
+  --sidebar-accent: #1e293b;
+  --sidebar-accent-foreground: #f8fafc;
+  --sidebar-border: #334155;
+  --sidebar-ring: #7fb5ff;
 }
 
 @theme inline {
-  /* Updated font system: Acme for everything */
-  --font-sans: "Acme", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Acme", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-sans), "Source Sans 3", system-ui, sans-serif;
+  --font-heading: var(--font-heading), "Outfit", system-ui, sans-serif;
+  --font-display: var(--font-heading), "Outfit", system-ui, sans-serif;
   --font-mono: ui-monospace, "SF Mono", "Monaco", "Cascadia Code", "Segoe UI Mono", monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -126,6 +130,9 @@
   /* Berkeley Colors */
   --color-berkeley-blue: #003262;
   --color-california-gold: #fdb515;
+  --color-berkeley-blue-light: var(--berkeley-blue-light);
+  --color-berkeley-blue-muted: var(--berkeley-blue-muted);
+  --color-california-gold-muted: var(--california-gold-muted);
 }
 
 @layer base {
@@ -136,14 +143,22 @@
     @apply bg-background text-foreground;
   }
 
-  /* All headings now use Acme */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    @apply text-balance font-sans;
+    @apply text-balance font-heading;
   }
 
   p {
@@ -151,9 +166,39 @@
   }
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-normal {
+  animation: marquee 40s linear infinite;
+}
+
+.marquee-slow {
+  animation: marquee 60s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .marquee-normal,
+  .marquee-slow {
+    animation: none;
+  }
 }
 
 /* Custom Berkeley styles */

@@ -1,299 +1,193 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Lightbulb, Users, Compass, Calendar, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react"
-import SplitText from "@/components/split-text"
-import TextType from "@/components/text-type"
+import { BentoGrid } from "@/components/bento-grid"
+import { BentoTile } from "@/components/bento-tile"
+import { HeroLanding } from "@/components/hero-landing"
+import { Marquee, MarqueeItem } from "@/components/marquee"
+import { Section } from "@/components/section"
+import { StatBlock } from "@/components/stat-block"
+import {
+  Lightbulb,
+  Users,
+  Compass,
+  Calendar,
+  Mail,
+  MapPin,
+} from "lucide-react"
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col">
-      {/* Hero Section */}
-      <section
-        className="relative overflow-hidden min-h-[600px] md:min-h-[700px] flex items-center"
-        style={{
-          backgroundImage: "url('/images/chatgpt-20image-20jan-204-2c-202026-2c-2004-52-19-20pm.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "left center",
-          backgroundRepeat: "no-repeat",
-          backgroundColor: "#2c3e50",
-        }}
-      >
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            {/* Left side - reduced spacer for tower image */}
-            <div className="w-full md:w-1/4" />
+    <div className="flex flex-col gap-3 md:gap-4">
+      <HeroLanding />
 
-            {/* Right side - content shifted left and up */}
-            <div className="w-full md:w-3/4 text-center md:text-left -mt-24 ml-24">
-              <SplitText
-                text="Regents' Overnight Host Program"
-                className="mb-6 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white uppercase tracking-wide font-display"
-                delay={50}
-                duration={1.25}
-                ease="power3.out"
-                splitType="chars"
-                from={{ opacity: 0, y: 40 }}
-                to={{ opacity: 1, y: 0 }}
-                tag="h1"
-                textAlign="left"
-              />
-              <div className="mb-10 text-xl md:text-2xl text-white/90 uppercase tracking-widest font-light">
-                <TextType
-                  text={[
-                    "Welcome to the Golden Bear family",
-                    "Discover your future at Cal",
-                    "Experience Berkeley excellence",
-                    "Join the tradition of scholars",
-                    "Your journey starts here",
-                  ]}
-                  typingSpeed={80}
-                  deletingSpeed={50}
-                  pauseDuration={2500}
-                  loop={true}
-                  showCursor={true}
-                  cursorCharacter="|"
-                  className="inline-block"
-                />
-              </div>
+      <Section fullBleed className="py-0" label="Marquee">
+        <Marquee>
+          <MarqueeItem>UC Berkeley</MarqueeItem>
+          <MarqueeItem>·</MarqueeItem>
+          <MarqueeItem>Regents Scholars</MarqueeItem>
+          <MarqueeItem>·</MarqueeItem>
+          <MarqueeItem>Campus Life</MarqueeItem>
+          <MarqueeItem>·</MarqueeItem>
+          <MarqueeItem>Golden Bears</MarqueeItem>
+          <MarqueeItem>·</MarqueeItem>
+          <MarqueeItem>Overnight Program</MarqueeItem>
+          <MarqueeItem>·</MarqueeItem>
+          <MarqueeItem>Virtual & In-Person</MarqueeItem>
+        </Marquee>
+      </Section>
 
-              {/* Social Media Icons */}
-              <div className="flex gap-4 justify-center md:justify-start">
-                <a
-                  href="mailto:contact@rohp.berkeley.edu"
-                  className="w-14 h-14 rounded-full bg-white/90 hover:bg-white flex items-center justify-center transition-colors"
-                  aria-label="Email"
-                >
-                  <Mail className="h-6 w-6" style={{ color: "#2c3e50" }} />
-                </a>
-                <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-14 h-14 rounded-full bg-white/90 hover:bg-white flex items-center justify-center transition-colors"
-                  aria-label="Facebook"
-                >
-                  <Facebook className="h-6 w-6" style={{ color: "#2c3e50" }} />
-                </a>
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-14 h-14 rounded-full bg-white/90 hover:bg-white flex items-center justify-center transition-colors"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="h-6 w-6" style={{ color: "#2c3e50" }} />
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-14 h-14 rounded-full bg-white/90 hover:bg-white flex items-center justify-center transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="h-6 w-6" style={{ color: "#2c3e50" }} />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* About ROHP Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="mb-6 text-3xl font-bold md:text-4xl text-center text-berkeley">
+      <Section variant="muted" label="About ROHP">
+        <BentoGrid>
+          <BentoTile span={8}>
+            <h2 className="font-heading text-2xl font-semibold tracking-tight text-primary md:text-3xl">
               About ROHP
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed text-center mb-8">
-              The Regents' Overnight Host Program (ROHP) connects Regents' and Chancellor's Scholarship candidates with
-              current UC Berkeley students for an immersive campus experience. Whether virtual or in-person, you'll
-              discover what makes Berkeley special.
+            <p className="mt-3 max-w-prose text-pretty text-muted-foreground">
+              The Regents&apos; Overnight Host Program connects Regents&apos; and Chancellor&apos;s
+              Scholarship candidates with current UC Berkeley students for an immersive campus experience.
             </p>
-            <div className="grid gap-4 md:grid-cols-2">
-              <Card className="border-2">
-                <CardContent className="pt-6">
-                  <h3 className="mb-3 text-xl font-bold text-berkeley">Who It's For</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Regents' and Chancellor's Scholarship candidates who want to explore Berkeley before making their
-                    college decision.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card className="border-2">
-                <CardContent className="pt-6">
-                  <h3 className="mb-3 text-xl font-bold text-berkeley">Benefits</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Meet faculty, tour campus, connect with current scholars, and experience authentic student life at
-                    Cal.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Three Pillars Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <h2 className="mb-12 text-3xl font-bold md:text-4xl text-center text-berkeley">Program Highlights</h2>
-          <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
-            <Card className="text-center border-2 hover:shadow-lg transition-shadow">
-              <CardContent className="pt-8 pb-6">
-                <div className="mb-4 flex justify-center">
-                  <div className="rounded-full p-4 california-gold">
-                    <Lightbulb className="h-8 w-8 icon-berkeley" />
-                  </div>
-                </div>
-                <h3 className="mb-3 text-2xl font-bold text-berkeley">Experience</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Live like a Berkeley student. Stay overnight in the dorms, attend events, and explore campus life
-                  firsthand.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center border-2 hover:shadow-lg transition-shadow">
-              <CardContent className="pt-8 pb-6">
-                <div className="mb-4 flex justify-center">
-                  <div className="rounded-full p-4 california-gold">
-                    <Users className="h-8 w-8 icon-berkeley" />
-                  </div>
-                </div>
-                <h3 className="mb-3 text-2xl font-bold text-berkeley">Interact</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Connect with current scholars, meet faculty speakers, and build lasting relationships with fellow
-                  prospective students.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center border-2 hover:shadow-lg transition-shadow">
-              <CardContent className="pt-8 pb-6">
-                <div className="mb-4 flex justify-center">
-                  <div className="rounded-full p-4 california-gold">
-                    <Compass className="h-8 w-8 icon-berkeley" />
-                  </div>
-                </div>
-                <h3 className="mb-3 text-2xl font-bold text-berkeley">
-                  Discover
+            <div className="mt-5 space-y-4 border-t border-border pt-5">
+              <div>
+                <h3 className="font-heading text-lg font-semibold tracking-tight text-primary">
+                  Who It&apos;s For
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Tour specialized facilities, explore academic programs, and discover the opportunities that await you
-                  at Cal.
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Regents&apos; and Chancellor&apos;s Scholarship candidates exploring Berkeley before their college decision.
                 </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Video Showcase Section */}
-      <section className="py-20 bg-background">
-          <div className="container mx-auto px-4">
-          <h2 className="mb-12 text-3xl font-bold md:text-4xl text-center text-berkeley">
-            See ROHP in Action
-          </h2>
-          <div className="grid gap-8 md:grid-cols-2 max-w-6xl mx-auto">
-            <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
-              <iframe
-                src="https://www.youtube.com/embed/M5bPQNFYbm8"
-                title="ROHP Video 1"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full"
-              />
-            </div>
-            <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
-              <iframe
-                src="https://www.youtube.com/embed/K48TEIDrJ9E"
-                title="ROHP Video 2"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Quick Stats Section */}
-      <section className="py-20 berkeley-blue">
-        <div className="container mx-auto px-4">
-          <div className="grid gap-8 md:grid-cols-3 max-w-4xl mx-auto text-center">
-            <div>
-              <div className="mb-2 text-5xl font-bold" style={{ color: "#FDB515" }}>
-                10+
               </div>
-              <p className="text-lg text-white/80">Programs Annually</p>
-            </div>
-            <div>
-              <div className="mb-2 text-5xl font-bold" style={{ color: "#FDB515" }}>
-                500+
+              <div>
+                <h3 className="font-heading text-lg font-semibold tracking-tight text-primary">
+                  Benefits
+                </h3>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Meet faculty, tour campus, connect with current scholars, and experience authentic student life at Cal.
+                </p>
               </div>
-              <p className="text-lg text-white/80">Participants</p>
             </div>
-            <div>
-              <div className="mb-2 text-5xl font-bold" style={{ color: "#FDB515" }}>
-                15+
+          </BentoTile>
+          <BentoTile span={4} variant="accent" className="flex flex-col justify-between">
+            <p className="font-heading text-lg font-semibold text-accent-foreground md:text-xl">
+              Free for all scholarship candidates
+            </p>
+            <div className="mt-6 space-y-4 border-t border-accent-foreground/20 pt-5">
+              <div>
+                <Lightbulb className="mb-1.5 h-5 w-5 text-accent-foreground" />
+                <p className="text-sm font-semibold text-accent-foreground">Experience</p>
+                <p className="mt-1 text-sm text-accent-foreground/90">
+                  Stay overnight, attend events, explore campus life firsthand.
+                </p>
               </div>
-              <p className="text-lg text-white/80">Years Running</p>
+              <div>
+                <Users className="mb-1.5 h-5 w-5 text-accent-foreground" />
+                <p className="text-sm font-semibold text-accent-foreground">Interact</p>
+                <p className="mt-1 text-sm text-accent-foreground/90">
+                  Connect with scholars, faculty, and fellow prospective students.
+                </p>
+              </div>
+              <div>
+                <Compass className="mb-1.5 h-5 w-5 text-accent-foreground" />
+                <p className="text-sm font-semibold text-accent-foreground">Discover</p>
+                <p className="mt-1 text-sm text-accent-foreground/90">
+                  Tour facilities and explore academic programs at Cal.
+                </p>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </BentoTile>
+        </BentoGrid>
+      </Section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mb-6 text-3xl font-bold md:text-4xl text-berkeley">
+      <Section label="Videos">
+        <BentoGrid>
+          <BentoTile span={12}>
+            <h2 className="mb-4 font-heading text-2xl font-semibold tracking-tight text-primary md:text-3xl">
+              See ROHP in Action
+            </h2>
+            <div className="grid grid-cols-1 gap-3 md:gap-4 lg:grid-cols-2">
+              <div className="relative aspect-video w-full overflow-hidden rounded-xl">
+                <iframe
+                  src="https://www.youtube.com/embed/M5bPQNFYbm8"
+                  title="ROHP Video 1"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 h-full w-full"
+                />
+              </div>
+              <div className="relative aspect-video w-full overflow-hidden rounded-xl">
+                <iframe
+                  src="https://www.youtube.com/embed/K48TEIDrJ9E"
+                  title="ROHP Video 2"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 h-full w-full"
+                />
+              </div>
+            </div>
+          </BentoTile>
+        </BentoGrid>
+      </Section>
+
+      <Section variant="muted" label="Statistics">
+        <BentoGrid>
+          <BentoTile span={4} className="text-center">
+            <StatBlock value="4" label="Annual Programs" />
+          </BentoTile>
+          <BentoTile span={4} className="text-center">
+            <StatBlock value="250+" label="Participants" accent />
+          </BentoTile>
+          <BentoTile span={4} className="text-center">
+            <StatBlock value="20+" label="Years Running" />
+          </BentoTile>
+        </BentoGrid>
+      </Section>
+
+      <Section label="Get started">
+        <BentoGrid>
+          <BentoTile span={8}>
+            <h2 className="font-heading text-2xl font-semibold tracking-tight text-primary md:text-3xl">
               Ready to Experience Berkeley?
             </h2>
-            <p className="mb-8 text-lg text-muted-foreground leading-relaxed">
-              Join us for an unforgettable program that will help you make the most important decision of your academic
-              journey.
+            <p className="mt-2 max-w-prose text-sm text-pretty text-muted-foreground">
+              Join us for an unforgettable program that will help you make the most important decision of your academic journey.
             </p>
-            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-              <Button asChild size="lg" className="berkeley-blue text-lg">
+            <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+              <Button asChild>
                 <Link href="/registration">
-                  <Calendar className="mr-2 h-5 w-5" />
+                  <Calendar className="mr-2 h-4 w-4" />
                   Register for a Program
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="text-lg bg-transparent">
+              <Button asChild variant="outline">
                 <Link href="/faq">Learn More</Link>
               </Button>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section className="py-16 bg-background border-t">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="mb-6 text-2xl font-bold" style={{ color: "#003262" }}>
+          </BentoTile>
+          <BentoTile span={4} variant="primary">
+            <h2 className="font-heading text-xl font-semibold tracking-tight">
               Have Questions?
             </h2>
-            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center items-center">
-              <div className="flex items-center gap-2">
-                <Mail className="h-5 w-5" style={{ color: "#003262" }} />
-                <a href="mailto:contact@rohp.berkeley.edu" className="hover:text-[#FDB515] transition-colors">
-                  contact@rohp.berkeley.edu
-                </a>
-              </div>
-              <div className="hidden sm:block text-muted-foreground">|</div>
-              <div className="flex items-center gap-2">
-                <MapPin className="h-5 w-5" style={{ color: "#003262" }} />
-                <span className="text-muted-foreground">UC Berkeley, CA</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            <p className="mt-2 text-sm text-primary-foreground/90">
+              Reach out anytime — we&apos;re happy to help you plan your visit.
+            </p>
+            <a
+              href="mailto:contact@rohp.berkeley.edu"
+              className="mt-4 inline-flex cursor-pointer items-center gap-2 text-sm font-semibold transition-colors duration-200 hover:text-accent"
+            >
+              <Mail className="h-4 w-4" />
+              contact@rohp.berkeley.edu
+            </a>
+            <p className="mt-3 inline-flex items-center gap-2 text-sm text-primary-foreground/80">
+              <MapPin className="h-4 w-4 shrink-0" />
+              UC Berkeley, California
+            </p>
+            <Link
+              href="/faq"
+              className="mt-4 inline-flex cursor-pointer text-sm font-semibold transition-colors duration-200 hover:text-accent"
+            >
+              Browse FAQ →
+            </Link>
+          </BentoTile>
+        </BentoGrid>
+      </Section>
     </div>
   )
 }

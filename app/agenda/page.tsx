@@ -1,142 +1,95 @@
 import Link from "next/link"
-import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { BentoGrid } from "@/components/bento-grid"
+import { BentoTile } from "@/components/bento-tile"
+import { CtaTile } from "@/components/cta-tile"
+import { PageHeader } from "@/components/page-header"
+import { Section } from "@/components/section"
 import { Calendar, Clock, Users } from "lucide-react"
-import { SplitText } from "@/components/split-text"
-import { FadeIn } from "@/components/fade-in"
 
 export default function AgendaPage() {
   return (
-    <div className="flex flex-col">
-      {/* Header Section */}
-      <section className="berkeley-blue py-16">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-4xl text-center overflow-visible">
-            <SplitText text="Program Agenda" className="mb-4 text-4xl font-bold md:text-5xl" delay={0.03} />
-            <FadeIn delay={0.3}>
-              <p className="text-lg text-white/80 leading-relaxed">
-                Choose between our virtual or overnight programs to experience UC Berkeley
-              </p>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
+    <div className="flex flex-col gap-3 md:gap-4">
+      <PageHeader
+        title="Program Agenda"
+        description="Choose between our virtual or overnight programs to experience UC Berkeley"
+      />
 
-      {/* Programs Overview */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
-            <FadeIn delay={0.1}>
-              <Card className="border-2 hover:shadow-xl transition-shadow">
-                <CardContent className="pt-8">
-                  <div className="mb-4 flex justify-center">
-                    <div className="rounded-full p-4" style={{ backgroundColor: "#FDB515" }}>
-                      <Users className="h-8 w-8" style={{ color: "#003262" }} />
-                    </div>
-                  </div>
-                  <h2 className="mb-4 text-2xl font-bold text-center" style={{ color: "#003262" }}>
-                    Virtual Program
-                  </h2>
-                  <p className="mb-6 text-muted-foreground text-center leading-relaxed">
-                    Join us online for a comprehensive virtual experience featuring faculty speakers, student panels,
-                    and virtual campus tours.
-                  </p>
-                  <div className="mb-6 flex flex-col gap-3">
-                    <div className="flex items-center gap-2 text-sm">
-                      <Clock className="h-5 w-5" style={{ color: "#003262" }} />
-                      <span>Single day program (9:00 AM - 12:30 PM PST)</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <Calendar className="h-5 w-5" style={{ color: "#003262" }} />
-                      <span>Available on select dates</span>
-                    </div>
-                  </div>
-                  <Button asChild className="w-full berkeley-blue">
-                    <Link href="/agenda/virtual">View Virtual Agenda</Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            </FadeIn>
-
-            <FadeIn delay={0.3}>
-              <Card className="border-2 hover:shadow-xl transition-shadow">
-                <CardContent className="pt-8">
-                  <div className="mb-4 flex justify-center">
-                    <div className="rounded-full p-4" style={{ backgroundColor: "#FDB515" }}>
-                      <Calendar className="h-8 w-8" style={{ color: "#003262" }} />
-                    </div>
-                  </div>
-                  <h2 className="mb-4 text-2xl font-bold text-center" style={{ color: "#003262" }}>
-                    Overnight Program
-                  </h2>
-                  <p className="mb-6 text-muted-foreground text-center leading-relaxed">
-                    Experience Berkeley life firsthand with an overnight stay in the dorms, meeting your host, and
-                    participating in campus activities.
-                  </p>
-                  <div className="mb-6 flex flex-col gap-3">
-                    <div className="flex items-center gap-2 text-sm">
-                      <Clock className="h-5 w-5" style={{ color: "#003262" }} />
-                      <span>Two-day program (5:00 PM - 12:30 PM next day)</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <Calendar className="h-5 w-5" style={{ color: "#003262" }} />
-                      <span>Multiple weekend dates available</span>
-                    </div>
-                  </div>
-                  <Button asChild className="w-full berkeley-blue">
-                    <Link href="/agenda/overnight">View Overnight Agenda</Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      {/* Key Info Section */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl">
-            <FadeIn>
-              <h2 className="mb-8 text-3xl font-bold text-center" style={{ color: "#003262" }}>
-                What to Expect
-              </h2>
-            </FadeIn>
-            <div className="grid gap-6 md:grid-cols-3">
-              <FadeIn delay={0.1}>
-                <div className="text-center">
-                  <h3 className="mb-2 text-lg font-bold" style={{ color: "#003262" }}>
-                    Faculty Speakers
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    Hear from distinguished professors about academic life at Berkeley
-                  </p>
-                </div>
-              </FadeIn>
-              <FadeIn delay={0.2}>
-                <div className="text-center">
-                  <h3 className="mb-2 text-lg font-bold" style={{ color: "#003262" }}>
-                    Student Panels
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    Connect with current scholars and ask questions about their experiences
-                  </p>
-                </div>
-              </FadeIn>
-              <FadeIn delay={0.3}>
-                <div className="text-center">
-                  <h3 className="mb-2 text-lg font-bold" style={{ color: "#003262" }}>
-                    Campus Tours
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    Explore Berkeley's iconic campus and specialized facilities
-                  </p>
-                </div>
-              </FadeIn>
+      <Section label="Programs">
+        <BentoGrid stretch>
+          <BentoTile span={4} href="/agenda/virtual" interactive fill>
+            <Users className="mb-2 h-6 w-6 text-primary" />
+            <h2 className="font-heading text-xl font-bold tracking-tight text-primary">Virtual Program</h2>
+            <p className="mt-2 text-sm text-pretty text-muted-foreground">
+              Faculty speakers, student panels, and virtual campus tours — all online.
+            </p>
+            <div className="mt-3 flex flex-col gap-1.5 text-sm">
+              <div className="flex items-center gap-2">
+                <Clock className="h-4 w-4 text-primary" />
+                <span>9:00 AM – 12:30 PM PST</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Calendar className="h-4 w-4 text-primary" />
+                <span>Select dates available</span>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
+            <span className="mt-auto inline-block pt-4 text-sm font-semibold text-primary">View agenda →</span>
+          </BentoTile>
+
+          <BentoTile span={4} variant="primary" href="/agenda/overnight" interactive fill>
+            <Calendar className="mb-2 h-6 w-6" />
+            <h2 className="font-heading text-xl font-bold tracking-tight">Overnight Program</h2>
+            <p className="mt-2 text-sm text-pretty text-primary-foreground/90">
+              Stay in the dorms, meet your host, and participate in campus activities.
+            </p>
+            <div className="mt-3 flex flex-col gap-1.5 text-sm text-primary-foreground/90">
+              <div className="flex items-center gap-2">
+                <Clock className="h-4 w-4" />
+                <span>5:00 PM – 12:30 PM next day</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Calendar className="h-4 w-4" />
+                <span>Multiple weekend dates</span>
+              </div>
+            </div>
+            <span className="mt-auto inline-block pt-4 text-sm font-semibold">View agenda →</span>
+          </BentoTile>
+
+          <BentoTile span={4} fill>
+            <h2 className="font-heading text-xl font-semibold tracking-tight text-primary">
+              What to Expect
+            </h2>
+            <ul className="mt-3 space-y-3 text-sm text-muted-foreground">
+              <li>
+                <span className="font-semibold text-primary">Faculty Speakers</span>
+                <span className="mt-0.5 block">Hear from distinguished professors about academic life at Berkeley</span>
+              </li>
+              <li>
+                <span className="font-semibold text-primary">Student Panels</span>
+                <span className="mt-0.5 block">Connect with current scholars and ask about their experiences</span>
+              </li>
+              <li>
+                <span className="font-semibold text-primary">Campus Tours</span>
+                <span className="mt-0.5 block">Explore Berkeley&apos;s campus — virtual or in person depending on your program</span>
+              </li>
+            </ul>
+          </BentoTile>
+        </BentoGrid>
+      </Section>
+
+      <Section variant="muted" label="Register">
+        <BentoGrid>
+          <CtaTile
+            title="Ready to register?"
+            description="Secure your spot in a virtual or overnight program."
+            actions={
+              <Button asChild size="lg">
+                <Link href="/registration">Register Now</Link>
+              </Button>
+            }
+          />
+        </BentoGrid>
+      </Section>
     </div>
   )
 }

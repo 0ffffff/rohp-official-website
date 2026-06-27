@@ -21,7 +21,7 @@ interface CommitteeMemberModalProps {
 export function CommitteeMemberModal({ member, isOpen, onClose }: CommitteeMemberModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+      <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto" data-lenis-prevent>
         <DialogHeader>
           <DialogTitle className="sr-only">About {member.name}</DialogTitle>
         </DialogHeader>
@@ -30,26 +30,24 @@ export function CommitteeMemberModal({ member, isOpen, onClose }: CommitteeMembe
             <div className="relative h-32 w-32 flex-shrink-0 rounded-full overflow-hidden bg-muted mx-auto sm:mx-0">
               <img src={member.image || "/placeholder.svg"} alt={member.name} className="h-full w-full object-cover" />
             </div>
-            <div className="text-center sm:text-left flex-1">
-              <h3 className="text-2xl font-bold mb-1 text-berkeley">{member.name}</h3>
-              <p className="text-sm text-muted-foreground mb-2">{member.pronouns}</p>
-              <p className="font-semibold mb-1 text-berkeley">{member.major}</p>
-              <p className="text-sm" style={{ color: "#FDB515" }}>
-                {member.classYear}
-              </p>
+            <div className="flex-1 text-center sm:text-left">
+              <h3 className="mb-1 font-heading text-2xl font-semibold text-primary">{member.name}</h3>
+              <p className="mb-2 text-sm text-muted-foreground">{member.pronouns}</p>
+              <p className="mb-1 font-semibold">{member.major}</p>
+              <p className="text-sm text-muted-foreground">{member.classYear}</p>
             </div>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-3 text-berkeley">About Me</h4>
-            <p className="text-muted-foreground leading-relaxed">{member.bio}</p>
+            <h4 className="mb-3 font-heading text-lg font-semibold text-primary">About Me</h4>
+            <p className="leading-relaxed text-pretty text-muted-foreground">{member.bio}</p>
           </div>
 
           {member.email && (
-            <div className="pt-4 border-t">
-              <Button asChild className="berkeley-blue w-full sm:w-auto">
+            <div className="border-t pt-4">
+              <Button asChild className="w-full cursor-pointer sm:w-auto">
                 <a href={`mailto:${member.email}`}>
-                  <Mail className="mr-2 h-4 w-4" />
+                  <Mail className="h-4 w-4" />
                   Contact {member.name.split(" ")[0]}
                 </a>
               </Button>

@@ -1,16 +1,22 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Acme } from "next/font/google"
+import { Outfit, Source_Sans_3 } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+import { SmoothScroll } from "@/components/smooth-scroll"
 import { AnimatedThemeToggle } from "@/components/ui/animated-theme-toggle"
 import "./globals.css"
 
-const _acme = Acme({
-  weight: "400",
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-display",
+  variable: "--font-heading",
+  display: "swap",
+})
+
+const sourceSans = Source_Sans_3({
+  subsets: ["latin"],
+  variable: "--font-sans",
   display: "swap",
 })
 
@@ -37,11 +43,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${_acme.variable} font-display antialiased`}>
-        <Navigation />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
-        <AnimatedThemeToggle />
+      <body
+        className={`${outfit.variable} ${sourceSans.variable} font-sans antialiased min-h-screen flex flex-col`}
+      >
+        <SmoothScroll>
+          <Navigation />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <AnimatedThemeToggle />
+        </SmoothScroll>
         <Analytics />
       </body>
     </html>
