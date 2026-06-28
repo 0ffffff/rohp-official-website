@@ -15,7 +15,7 @@ const spanClasses = {
 
 const variantClasses = {
   default: "bg-muted",
-  primary: "bg-primary text-primary-foreground border-primary",
+  primary: "bg-brand text-brand-foreground border-brand",
   accent: "bg-accent text-accent-foreground border-accent",
   ghost: "bg-background",
   image: "bg-muted p-0 min-h-0",

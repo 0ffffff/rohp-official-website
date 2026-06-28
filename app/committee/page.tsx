@@ -24,7 +24,7 @@ export default function CommitteePage() {
           <BentoTile span={4} variant="primary" className="text-center">
             <Users className="mx-auto mb-2 h-6 w-6" />
             <p className="font-heading text-3xl font-bold tracking-tight">20+</p>
-            <p className="text-sm text-primary-foreground/90">Student hosts &amp; organizers</p>
+            <p className="text-sm text-brand-foreground/90">Student hosts &amp; organizers</p>
           </BentoTile>
         </BentoGrid>
       </Section>

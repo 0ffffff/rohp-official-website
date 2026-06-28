@@ -36,10 +36,10 @@ export default function AgendaPage() {
           <BentoTile span={4} variant="primary" href="/agenda/overnight" interactive fill>
             <Calendar className="mb-2 h-6 w-6" />
             <h2 className="font-heading text-xl font-bold tracking-tight">Overnight Program</h2>
-            <p className="mt-2 text-sm text-pretty text-primary-foreground/90">
+            <p className="mt-2 text-sm text-pretty text-brand-foreground/90">
               Stay in the dorms, meet your host, and participate in campus activities.
             </p>
-            <div className="mt-3 flex flex-col gap-1.5 text-sm text-primary-foreground/90">
+            <div className="mt-3 flex flex-col gap-1.5 text-sm text-brand-foreground/90">
               <div className="flex items-center gap-2">
                 <Clock className="h-4 w-4" />
                 <span>5:00 PM – 12:30 PM next day</span>

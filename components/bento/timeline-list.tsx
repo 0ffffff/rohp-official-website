@@ -20,7 +20,7 @@ export function TimelineList({ items, className }: TimelineListProps) {
           key={`${item.time}-${item.title}`}
           className={cn(
             "flex gap-4 py-3 first:pt-0 last:pb-0",
-            item.highlight === "primary" && "rounded-xl bg-primary/5 px-3 -mx-3",
+            item.highlight === "primary" && "rounded-xl bg-brand/10 px-3 -mx-3",
             item.highlight === "accent" && "rounded-xl bg-accent/10 px-3 -mx-3",
           )}
         >

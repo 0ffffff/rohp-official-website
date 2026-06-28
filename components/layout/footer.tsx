@@ -4,14 +4,14 @@ import { Facebook, Instagram, Mail } from "lucide-react"
 import { BentoGrid, BentoTile, siteContainerClass } from "@/components/bento"
 
 const footerTileClass =
-  "border-white/15 bg-white/10 text-primary-foreground shadow-none hover:border-white/25 hover:bg-white/15"
+  "border-white/15 bg-white/10 text-brand-foreground shadow-none hover:border-white/25 hover:bg-white/15"
 
 const footerLinkClass =
   "cursor-pointer text-sm text-white/75 transition-colors duration-200 hover:text-white"
 
 export function Footer() {
   return (
-    <footer className="w-full bg-primary text-primary-foreground">
+    <footer className="w-full bg-brand text-brand-foreground">
       <div className="py-6 md:py-8">
         <BentoGrid stretch>
           <BentoTile span={4} fill className={footerTileClass}>

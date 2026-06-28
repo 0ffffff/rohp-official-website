@@ -2,9 +2,10 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 function isActiveRoute(pathname: string, href: string): boolean {
   if (href === "/") {
@@ -13,9 +14,41 @@ function isActiveRoute(pathname: string, href: string): boolean {
   return pathname.startsWith(href)
 }
 
+const SCROLL_THRESHOLD = 48
+
 export function Navigation() {
   const pathname = usePathname()
+  const isHome = pathname === "/"
+  const [isScrolled, setIsScrolled] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
+
+  const showBar = !isHome || isScrolled || isOpen
+
+  useEffect(() => {
+    if (!isHome) {
+      setIsScrolled(false)
+      return
+    }
+
+    const updateScroll = (scrollY = window.scrollY) => {
+      setIsScrolled(scrollY > SCROLL_THRESHOLD)
+    }
+
+    const onNativeScroll = () => updateScroll()
+
+    const onLenisScroll = (event: Event) => {
+      const detail = (event as CustomEvent<{ scrollY: number }>).detail
+      updateScroll(detail.scrollY)
+    }
+
+    updateScroll()
+    window.addEventListener("scroll", onNativeScroll, { passive: true })
+    window.addEventListener("rohp:scroll", onLenisScroll)
+    return () => {
+      window.removeEventListener("scroll", onNativeScroll)
+      window.removeEventListener("rohp:scroll", onLenisScroll)
+    }
+  }, [isHome])
 
   const navItems = [
     { href: "/", label: "Home" },
@@ -31,7 +64,14 @@ export function Navigation() {
       : "text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 cursor-pointer"
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-sm md:top-4 md:mx-auto md:max-w-screen-2xl md:rounded-2xl md:border md:px-2">
+    <nav
+      className={cn(
+        "sticky top-0 z-50 w-full transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300 motion-reduce:transition-none md:top-4 md:mx-auto md:max-w-screen-2xl md:px-2",
+        showBar
+          ? "border-b border-border bg-background/80 shadow-sm backdrop-blur-sm md:rounded-2xl md:border"
+          : "border-b border-transparent bg-transparent",
+      )}
+    >
       <div className="container mx-auto max-w-screen-2xl px-4 md:px-6">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -68,6 +108,7 @@ export function Navigation() {
             className="cursor-pointer md:hidden"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isOpen}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -75,9 +116,10 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
         <div
-          className={`overflow-hidden transition-all duration-200 md:hidden ${
-            isOpen ? "max-h-96 border-t opacity-100" : "max-h-0 opacity-0"
-          }`}
+          className={cn(
+            "overflow-hidden transition-all duration-200 md:hidden",
+            isOpen ? "max-h-96 border-t border-border opacity-100" : "max-h-0 opacity-0",
+          )}
           aria-hidden={!isOpen}
           {...(!isOpen ? { inert: true } : {})}
         >

@@ -44,7 +44,7 @@ export default function RegistrationPage() {
                   <div
                     className={
                       variant === "primary"
-                        ? "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground"
+                        ? "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand text-brand-foreground"
                         : "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-muted text-primary"
                     }
                   >

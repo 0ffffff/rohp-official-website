@@ -16,12 +16,12 @@ export function HeroLanding() {
   return (
     <section
       aria-label="Hero"
-      className="relative min-h-[72vh] md:min-h-[78vh]"
+      className="relative -mt-16 min-h-[72vh] md:min-h-[78vh]"
     >
       <div
         className={cn(
           siteContainerClass,
-          "flex min-h-[inherit] flex-col justify-center pt-8 pb-36 md:pt-12 md:pb-40",
+          "flex min-h-[inherit] flex-col justify-center pt-24 pb-36 md:pt-28 md:pb-40",
         )}
       >
         <h1 className="font-heading text-[clamp(2.75rem,9vw,6.5rem)] font-bold leading-[0.95] tracking-tight text-balance text-primary">

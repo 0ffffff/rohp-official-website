@@ -46,7 +46,7 @@ export const AnimatedThemeToggle = ({ className }: { className?: string }) => {
     <Button
       onClick={() => setTheme(isDark ? "light" : "dark")}
       className={cn(
-        "px-2.5 shadow-lg border border-border/70 bg-background/80 backdrop-blur-md hover:bg-accent fixed bottom-6 right-6 z-[9999]",
+        "px-2.5 shadow-lg border border-border/70 bg-background/90 backdrop-blur-md hover:bg-muted fixed bottom-6 right-6 z-[9999]",
         className,
       )}
       variant="outline"

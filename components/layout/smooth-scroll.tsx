@@ -19,6 +19,12 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       touchMultiplier: 1.5,
     })
 
+    lenis.on("scroll", ({ scroll }: { scroll: number }) => {
+      window.dispatchEvent(
+        new CustomEvent("rohp:scroll", { detail: { scrollY: scroll } }),
+      )
+    })
+
     let frame: number
     function raf(time: number) {
       lenis.raf(time)

@@ -23,6 +23,7 @@ export default function HomePage() {
     <div className="flex flex-col gap-3 md:gap-4">
       <HeroLanding />
 
+      {/* TODO: Replace homepage marquee with a different section/component — placeholder for now. */}
       <Section fullBleed className="py-0" label="Marquee">
         <Marquee>
           <MarqueeItem>UC Berkeley</MarqueeItem>
@@ -168,7 +169,7 @@ export default function HomePage() {
             <h2 className="font-heading text-xl font-semibold tracking-tight">
               Have Questions?
             </h2>
-            <p className="mt-2 text-sm text-primary-foreground/90">
+            <p className="mt-2 text-sm text-brand-foreground/90">
               Reach out anytime — we&apos;re happy to help you plan your visit.
             </p>
             <a
@@ -178,7 +179,7 @@ export default function HomePage() {
               <Mail className="h-4 w-4" />
               contact@rohp.berkeley.edu
             </a>
-            <p className="mt-3 inline-flex items-center gap-2 text-sm text-primary-foreground/80">
+            <p className="mt-3 inline-flex items-center gap-2 text-sm text-brand-foreground/80">
               <MapPin className="h-4 w-4 shrink-0" />
               UC Berkeley, California
             </p>

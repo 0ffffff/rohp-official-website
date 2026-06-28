@@ -229,31 +229,33 @@ export function CommitteeGrid() {
         {committeeMembers.map((member, index) => (
           <BentoTile
             key={`${member.name}-${index}`}
-            span={4}
+            span={3}
             variant="image"
             className="min-h-0 p-0"
             interactive
           >
-            <div className="relative aspect-[3/4] overflow-hidden">
+            <div className="relative aspect-square overflow-hidden">
               <img
                 src={member.image || "/placeholder.svg"}
                 alt={member.name}
                 className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105 motion-reduce:group-hover:scale-100"
               />
             </div>
-            <div className="p-4">
-              <h3 className="font-heading text-base font-semibold text-primary">{member.name}</h3>
-              <p className="text-xs text-muted-foreground">{member.pronouns}</p>
-              <p className="mt-1 text-xs font-medium">{member.major}</p>
-              <p className="text-xs text-muted-foreground">{member.classYear}</p>
+            <div className="p-3">
+              <h3 className="font-heading text-sm font-semibold leading-tight text-primary">
+                {member.name}
+              </h3>
+              <p className="mt-0.5 text-[11px] text-muted-foreground">{member.pronouns}</p>
+              <p className="mt-1 line-clamp-2 text-[11px] font-medium leading-snug">{member.major}</p>
+              <p className="text-[11px] text-muted-foreground">{member.classYear}</p>
               <Button
                 onClick={() => setSelectedMember(member)}
                 variant="outline"
                 size="sm"
-                className="mt-3 w-full cursor-pointer"
+                className="mt-2 h-7 w-full cursor-pointer text-xs"
               >
-                <User className="h-4 w-4" />
-                About Me
+                <User className="h-3.5 w-3.5" />
+                About
               </Button>
             </div>
           </BentoTile>
