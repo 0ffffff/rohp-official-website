@@ -1,8 +1,7 @@
 import Link from "next/link"
 import { Facebook, Instagram, Mail } from "lucide-react"
 
-import { BentoGrid, siteContainerClass } from "@/components/bento-grid"
-import { BentoTile } from "@/components/bento-tile"
+import { BentoGrid, BentoTile, siteContainerClass } from "@/components/bento"
 
 const footerTileClass =
   "border-white/15 bg-white/10 text-primary-foreground shadow-none hover:border-white/25 hover:bg-white/15"

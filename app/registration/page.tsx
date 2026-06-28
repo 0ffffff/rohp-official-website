@@ -1,10 +1,8 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { RegistrationTrigger } from "@/components/registration-trigger"
-import { BentoGrid } from "@/components/bento-grid"
-import { BentoTile } from "@/components/bento-tile"
-import { PageHeader } from "@/components/page-header"
-import { Section } from "@/components/section"
+import { RegistrationTrigger } from "@/components/features"
+import { BentoGrid, BentoTile, PageHeader } from "@/components/bento"
+import { Section } from "@/components/layout"
 import { Download, FileCheck, HelpCircle, MessageSquare } from "lucide-react"
 
 const registrationSteps = [

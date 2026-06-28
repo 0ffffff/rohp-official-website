@@ -1,11 +1,14 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { BentoGrid } from "@/components/bento-grid"
-import { BentoTile } from "@/components/bento-tile"
-import { CtaTile } from "@/components/cta-tile"
-import { PageHeader } from "@/components/page-header"
-import { Section } from "@/components/section"
-import { TimelineList, type TimelineItem } from "@/components/timeline-list"
+import {
+  BentoGrid,
+  BentoTile,
+  CtaTile,
+  PageHeader,
+  TimelineList,
+  type TimelineItem,
+} from "@/components/bento"
+import { Section } from "@/components/layout"
 import { Info } from "lucide-react"
 
 const day1Events: TimelineItem[] = [

@@ -1,10 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { BentoGrid } from "@/components/bento-grid"
-import { BentoTile } from "@/components/bento-tile"
-import { CtaTile } from "@/components/cta-tile"
-import { PageHeader } from "@/components/page-header"
-import { Section } from "@/components/section"
+import { BentoGrid, BentoTile, CtaTile, PageHeader } from "@/components/bento"
+import { Section } from "@/components/layout"
 
 function HousingInfoList({ items }: { items: string[] }) {
   return (

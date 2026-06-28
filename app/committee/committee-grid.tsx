@@ -2,9 +2,8 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { CommitteeMemberModal } from "@/components/committee-member-modal"
-import { BentoGrid } from "@/components/bento-grid"
-import { BentoTile } from "@/components/bento-tile"
+import { CommitteeMemberModal } from "@/components/features"
+import { BentoGrid, BentoTile } from "@/components/bento"
 import { User } from "lucide-react"
 
 interface CommitteeMember {

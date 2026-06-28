@@ -5,10 +5,8 @@ import Link from "next/link"
 import { Input } from "@/components/ui/input"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Search, Mail } from "lucide-react"
-import { BentoGrid } from "@/components/bento-grid"
-import { BentoTile } from "@/components/bento-tile"
-import { PageHeader } from "@/components/page-header"
-import { Section } from "@/components/section"
+import { BentoGrid, BentoTile, PageHeader } from "@/components/bento"
+import { Section } from "@/components/layout"
 
 type FaqCategory = {
   category: string

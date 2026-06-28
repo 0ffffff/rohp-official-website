@@ -1,11 +1,14 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { BentoGrid } from "@/components/bento-grid"
-import { BentoTile } from "@/components/bento-tile"
-import { HeroLanding } from "@/components/hero-landing"
-import { Marquee, MarqueeItem } from "@/components/marquee"
-import { Section } from "@/components/section"
-import { StatBlock } from "@/components/stat-block"
+import {
+  BentoGrid,
+  BentoTile,
+  Marquee,
+  MarqueeItem,
+  StatBlock,
+} from "@/components/bento"
+import { HeroLanding } from "@/components/features"
+import { Section } from "@/components/layout"
 import {
   Lightbulb,
   Users,

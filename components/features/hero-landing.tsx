@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Calendar, Mail, Facebook, Instagram, Linkedin } from "lucide-react"
 
-import { siteContainerClass } from "@/components/bento-grid"
+import { siteContainerClass } from "@/components/bento"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 

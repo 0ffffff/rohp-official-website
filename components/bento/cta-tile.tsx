@@ -1,6 +1,6 @@
 import type { ReactNode } from "react"
 
-import { BentoTile } from "@/components/bento-tile"
+import { BentoTile } from "./bento-tile"
 
 interface CtaTileProps {
   title: string

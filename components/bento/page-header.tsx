@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import { siteContainerClass } from "@/components/bento-grid"
+import { siteContainerClass } from "./bento-grid"
 
 interface PageHeaderProps {
   title: string
